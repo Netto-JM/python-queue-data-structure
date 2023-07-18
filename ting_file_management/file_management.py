@@ -1,7 +1,7 @@
 import sys
 
 
-def txt_importer(path_file):
+def txt_importer(path_file: str):
     """Aqui irá sua implementação"""
 
     # Verifica se o arquivo tem a extensão correta

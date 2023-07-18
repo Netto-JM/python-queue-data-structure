@@ -1,4 +1,5 @@
 from ting_file_management.abstract_queue import AbstractQueue
+from typing import Any
 
 
 class Queue(AbstractQueue):
@@ -10,7 +11,7 @@ class Queue(AbstractQueue):
         """Aqui irá sua implementação"""
         return len(self.items)
 
-    def enqueue(self, value):
+    def enqueue(self, value: Any):
         """Aqui irá sua implementação"""
         self.items.append(value)
 
@@ -21,7 +22,7 @@ class Queue(AbstractQueue):
 
         return self.items.pop(0)
 
-    def search(self, index):
+    def search(self, index: int):
         """Aqui irá sua implementação"""
         if index < 0 or index >= len(self.items):
             raise IndexError("Índice Inválido ou Inexistente")
