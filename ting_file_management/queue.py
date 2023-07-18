@@ -4,27 +4,22 @@ from typing import Any
 
 class Queue(AbstractQueue):
     def __init__(self):
-        """Inicialize sua estrutura aqui"""
-        self.items = []
+        self.queue = []
 
     def __len__(self):
-        """Aqui irá sua implementação"""
-        return len(self.items)
+        return len(self.queue)
 
     def enqueue(self, value: Any):
-        """Aqui irá sua implementação"""
-        self.items.append(value)
+        self.queue.append(value)
 
     def dequeue(self):
-        """Aqui irá sua implementação"""
-        if len(self.items) == 0:
+        if len(self.queue) == 0:
             raise IndexError("A fila está vazia")
 
-        return self.items.pop(0)
+        return self.queue.pop(0)
 
     def search(self, index: int):
-        """Aqui irá sua implementação"""
-        if index < 0 or index >= len(self.items):
+        if index < 0 or index >= len(self.queue):
             raise IndexError("Índice Inválido ou Inexistente")
 
-        return self.items[index]
+        return self.queue[index]

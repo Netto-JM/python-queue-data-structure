@@ -5,7 +5,7 @@ from typing import List
 
 
 def is_valid_path(path_file: str, instance: Queue):
-    for dict in instance.items:
+    for dict in instance.queue:
         if dict.get("nome_do_arquivo") == path_file:
             return False
     return True
@@ -20,7 +20,6 @@ def get_dict_data(lines: List[str], path_file: str):
 
 
 def process(path_file: str, instance: Queue):
-    """Aqui irá sua implementação"""
     if is_valid_path(path_file, instance):
         lines = txt_importer(path_file)
         dict_data = get_dict_data(lines, path_file)
@@ -29,7 +28,6 @@ def process(path_file: str, instance: Queue):
 
 
 def remove(instance: Queue):
-    """Aqui irá sua implementação"""
     if len(instance) == 0:
         print("Não há elementos")
     else:
@@ -38,7 +36,6 @@ def remove(instance: Queue):
 
 
 def file_metadata(instance: Queue, position: int):
-    """Aqui irá sua implementação"""
     if position < 0 or position >= len(instance):
         print("Posição inválida", file=sys.stderr)
     else:

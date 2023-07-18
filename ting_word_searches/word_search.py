@@ -5,7 +5,7 @@ def exists_word(word: str, instance: Queue):
     result = []
     target = word.lower()
 
-    for item in instance.items:
+    for item in instance.queue:
         path_file = item.get("nome_do_arquivo")
         lines = item.get("linhas_do_arquivo")
         occurrences = []
