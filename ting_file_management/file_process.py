@@ -4,14 +4,14 @@ from ting_file_management.queue import Queue
 from typing import List
 
 
-def is_valid_path(path_file: str, instance: Queue):
+def is_valid_path(path_file: str, instance: Queue) -> bool:
     for dict in instance.queue:
         if dict.get("nome_do_arquivo") == path_file:
             return False
     return True
 
 
-def get_dict_data(lines: List[str], path_file: str):
+def get_dict_data(lines: List[str], path_file: str) -> dict:
     dict = {}
     dict["nome_do_arquivo"] = path_file
     dict["qtd_linhas"] = len(lines)
@@ -19,7 +19,7 @@ def get_dict_data(lines: List[str], path_file: str):
     return dict
 
 
-def process(path_file: str, instance: Queue):
+def process(path_file: str, instance: Queue) -> None:
     if is_valid_path(path_file, instance):
         lines = txt_importer(path_file)
         dict_data = get_dict_data(lines, path_file)
@@ -27,7 +27,7 @@ def process(path_file: str, instance: Queue):
         print(dict_data)
 
 
-def remove(instance: Queue):
+def remove(instance: Queue) -> None:
     if len(instance) == 0:
         print("Não há elementos")
     else:
@@ -35,7 +35,7 @@ def remove(instance: Queue):
         print(f"Arquivo {dict.get('nome_do_arquivo')} removido com sucesso")
 
 
-def file_metadata(instance: Queue, position: int):
+def file_metadata(instance: Queue, position: int) -> None:
     if position < 0 or position >= len(instance):
         print("Posição inválida", file=sys.stderr)
     else:

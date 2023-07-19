@@ -1,7 +1,8 @@
 import sys
+from typing import Union
 
 
-def txt_importer(path_file: str):
+def txt_importer(path_file: str) -> Union[list[str], None]:
     # Verifica se o arquivo tem a extensão correta
     if not path_file.endswith('.txt'):
         print('Formato inválido', file=sys.stderr)
